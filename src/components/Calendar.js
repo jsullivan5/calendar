@@ -1,14 +1,32 @@
 import React from 'react';
+import Day from './Day';
 
 class Calendar extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      days: [],
+    };
+  }
   componentDidMount() {
-    return true;
+    this.renderCal();
+  }
+
+  renderCal() {
+    const dayCount = 42;
+    const daysArr = [];
+
+    for (let i = 0; i < dayCount; i += 1) {
+      daysArr.push(<Day day={i} />);
+    }
+
+    this.setState({ days: daysArr });
   }
 
   render() {
     return (
       <main>
-        <p>Cal</p>
+        {this.state.days}
       </main>
     );
   }
