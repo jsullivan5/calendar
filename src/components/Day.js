@@ -12,6 +12,7 @@ class Day extends React.Component {
     };
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
   }
   generateEvents() {
     let dailyEvents;
@@ -26,6 +27,12 @@ class Day extends React.Component {
     }
 
     return dailyEvents || null;
+  }
+
+  handleKeyPress(event) {
+    if(event.key == 'Enter'){
+      this.openModal();
+    }
   }
 
   openModal() {
@@ -45,6 +52,7 @@ class Day extends React.Component {
         onClick={this.openModal}
         role="button"
         tabIndex={this.props.day}
+        onKeyPress={this.handleKeyPress}
       >
         {this.state.showModal &&
           <AddEvent
