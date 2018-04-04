@@ -1,0 +1,37 @@
+.grid {
+  display:grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-auto-flow: dense;
+  width: 100%;
+}
+
+.day {
+  border: 1px solid #F0F0F0;
+  height: 100px;
+}
+
+.weekend {
+  background-color: #EEEEEE;
+}
+
+.add-event-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-event-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #EEEEEE;
+  height: 300px;
+  width: 300px;
+}
