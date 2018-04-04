@@ -4,7 +4,7 @@ import DayHeaders from './DayHeaders';
 
 import './styles/App.css';
 
-const Header = ({ changeMonth }) => (
+const Header = ({ changeMonth, currentMonth }) => (
   <header>
     <nav className="nav">
       <button onClick={() => changeMonth('back')}>
@@ -14,13 +14,14 @@ const Header = ({ changeMonth }) => (
         Next
       </button>
     </nav>
-    <h1>October</h1>
+    <h1>{currentMonth}</h1>
     <DayHeaders />
   </header>
 );
 
 Header.propTypes = {
   changeMonth: PropTypes.func.isRequired,
+  currentMonth: PropTypes.string.isRequired,
 };
 
 export default Header;

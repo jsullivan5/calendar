@@ -34,10 +34,12 @@ class Calendar extends React.Component {
 
     if (direction === 'forward' && currentIndex < 1) {
       this.setState({ activeMonth: months[currentIndex + 1] });
+      this.props.getCurrentMonth(months[currentIndex + 1]);
     }
 
     if (direction === 'back' && currentIndex > 0) {
       this.setState({ activeMonth: months[currentIndex - 1] });
+      this.props.getCurrentMonth(months[currentIndex - 1]);
     }
   }
 
@@ -83,6 +85,7 @@ class Calendar extends React.Component {
 
 Calendar.propTypes = {
   getFunc: PropTypes.func.isRequired,
+  getCurrentMonth: PropTypes.func.isRequired,
 };
 
 export default Calendar;
