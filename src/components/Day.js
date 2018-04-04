@@ -1,7 +1,15 @@
 import React from 'react';
 import Event from './Event';
+import AddEvent from './AddEvent';
 
 class Day extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showModal: false,
+    };
+    this.toggleModal = this.toggleModal.bind(this);
+  }
   generateEvents() {
     let dailyEvents;
 
@@ -17,14 +25,21 @@ class Day extends React.Component {
     return dailyEvents || null;
   }
 
+  toggleModal() {
+    const { showModal } = this.state;
+    this.setState({ showModal: !showModal });
+  }
+
   render() {
     const dailyEvents = this.generateEvents();
 
     return (
       <div
         className={`day ${this.props.weekend ? 'weekend' : null}`}
-        onClick={this.props.onClick}
+        onClick={this.props.toggleModal}
       >
+        {this.state.showModal &&
+        <AddEvent />}
         <p>{this.props.day}</p>
         {dailyEvents}
       </div>
