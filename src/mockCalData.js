@@ -180,7 +180,13 @@ export const november =  [
     events: []
   },
   {
-    events: []
+    events: [
+      {
+        name: 'Thanksiving',
+        start: '12:00',
+        end: '12:00'
+      }
+    ]
   },
   {
     events: []
