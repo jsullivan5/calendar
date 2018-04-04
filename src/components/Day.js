@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Day = props => (
-  <div>
+  <div className="day">
     <p>{props.day}</p>
   </div>
 );

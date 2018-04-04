@@ -25,7 +25,7 @@ class Calendar extends React.Component {
 
   render() {
     return (
-      <main>
+      <main className="grid">
         {this.state.days}
       </main>
     );
