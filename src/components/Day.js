@@ -1,6 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Event from './Event';
 import AddEvent from './AddEvent';
+
 
 class Day extends React.Component {
   constructor(props) {
@@ -10,6 +12,7 @@ class Day extends React.Component {
     };
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
   }
   generateEvents() {
     let dailyEvents;
@@ -24,6 +27,12 @@ class Day extends React.Component {
     }
 
     return dailyEvents || null;
+  }
+
+  handleKeyPress(event) {
+    if (event.key === 'Enter') {
+      this.openModal();
+    }
   }
 
   openModal() {
@@ -41,6 +50,9 @@ class Day extends React.Component {
       <div
         className={`day ${this.props.weekend ? 'weekend' : null}`}
         onClick={this.openModal}
+        role="button"
+        tabIndex={this.props.day}
+        onKeyPress={this.handleKeyPress}
       >
         {this.state.showModal &&
           <AddEvent
@@ -54,5 +66,12 @@ class Day extends React.Component {
     );
   }
 }
+
+Day.propTypes = {
+  events: PropTypes.array.isRequired,
+  addEvent: PropTypes.func.isRequired,
+  day: PropTypes.number.isRequired,
+  weekend: PropTypes.bool.isRequired,
+};
 
 export default Day;

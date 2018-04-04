@@ -2,31 +2,25 @@ import React from 'react';
 import Day from './Day';
 import { october, november } from '../mockCalData';
 
-const addClass = (index) => {
-  if (index % 7 === 0 || (index - 1) % 7 === 0) {
-    return true;
-  }
-  return false;
-};
-
 class Calendar extends React.Component {
+  static addClass(index) {
+    if (index % 7 === 0 || (index - 1) % 7 === 0) {
+      return true;
+    }
+    return false;
+  }
+
   constructor() {
     super();
     this.state = {
-      october: [],
-      november: [],
+      october,
+      november,
       activeMonth: 'october',
       showModal: false,
     };
     this.addEvent = this.addEvent.bind(this);
   }
 
-  componentDidMount() {
-    this.setState({
-      october,
-      november,
-    });
-  }
 
   addEvent(calendarDay, eventInfo) {
     const { activeMonth } = this.state;
@@ -43,11 +37,11 @@ class Calendar extends React.Component {
 
     return this.state[activeMonth].map((day, i) => {
       const calendarDay = i + 1;
-      const isWeekend = addClass(calendarDay);
+      const isWeekend = Calendar.addClass(calendarDay);
 
       return (
         <Day
-          key={`oct-${i}`}
+          key={`${activeMonth}-${calendarDay}`}
           weekend={isWeekend}
           day={calendarDay}
           events={day.events}
