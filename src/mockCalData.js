@@ -1,7 +1,194 @@
-export default [
+export const october = [
   {
-    event: {
-      start: '9:00'
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: [
+    {
+      name: 'Columbus Day',
+      start: '12:00',
+      end: '12:00'
     }
+    ]
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
   }
-]
+];
+
+export const november =  [
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  },
+  {
+    events: []
+  }
+];
