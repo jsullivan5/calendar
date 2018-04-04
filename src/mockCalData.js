@@ -96,10 +96,13 @@ export const october = [
     events: []
   },
   {
-    events: []
-  },
-  {
-    events: []
+    events: [
+      {
+        name: 'Halloween',
+        start: '12:00',
+        end: '12:00'
+      }
+    ]
   }
 ];
 
