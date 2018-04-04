@@ -46,6 +46,7 @@ class Day extends React.Component {
           <AddEvent
             addEvent={this.props.addEvent}
             closeModal={this.closeModal}
+            calendarDay={this.props.day}
           />}
         <p>{this.props.day}</p>
         {dailyEvents}
