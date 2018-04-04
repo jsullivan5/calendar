@@ -14,7 +14,10 @@ const Day = (props) => {
   }
 
   return (
-    <div className={`day ${props.weekend ? 'weekend' : null}`}>
+    <div
+      className={`day ${props.weekend ? 'weekend' : null}`}
+      onClick={props.onClick}
+    >
       <p>{props.day}</p>
       {dailyEvents || null}
     </div>

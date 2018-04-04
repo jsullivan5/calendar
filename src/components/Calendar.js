@@ -9,28 +9,17 @@ const addClass = (index) => {
   return false;
 };
 
-const renderCal = () => october.map((day, i) => {
-  const calendarDay = i + 1;
-  const isWeekend = addClass(calendarDay);
-
-  return (
-    <Day
-      key={`oct-${i}`}
-      weekend={isWeekend}
-      day={calendarDay}
-      events={day.events}
-    />
-  );
-});
-
 class Calendar extends React.Component {
   constructor() {
     super();
     this.state = {
       october: [],
       november: [],
+      activeMonth: 'october',
     };
+    this.addEvent = this.addEvent.bind(this);
   }
+
   componentDidMount() {
     this.setState({
       october,
@@ -38,8 +27,42 @@ class Calendar extends React.Component {
     });
   }
 
+  addEvent(calendarDay) {
+    console.log('addEvent!!!!!!');
+    const { activeMonth } = this.state;
+    const newState = [...this.state[activeMonth]];
+    const index = calendarDay - 1;
+
+    newState[index].events.push({
+      name: 'new event',
+      start: '9:00',
+      end: '9:00',
+    });
+
+    this.setState({ [activeMonth]: newState });
+  }
+
+  renderCal() {
+    const { activeMonth } = this.state;
+
+    return this.state[activeMonth].map((day, i) => {
+      const calendarDay = i + 1;
+      const isWeekend = addClass(calendarDay);
+
+      return (
+        <Day
+          key={`oct-${i}`}
+          weekend={isWeekend}
+          day={calendarDay}
+          events={day.events}
+          onClick={() => this.addEvent(calendarDay)}
+        />
+      );
+    });
+  }
+
   render() {
-    const calDays = renderCal();
+    const calDays = this.renderCal();
 
     return (
       <main className="grid">
