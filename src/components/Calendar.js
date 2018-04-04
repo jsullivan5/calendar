@@ -40,7 +40,7 @@ class Calendar extends React.Component {
 
       return (
         <Day
-          key={`oct-${i}`}
+          key={`${activeMonth}-${calendarDay}`}
           weekend={isWeekend}
           day={calendarDay}
           events={day.events}
