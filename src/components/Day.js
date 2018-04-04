@@ -43,6 +43,8 @@ class Day extends React.Component {
       <div
         className={`day ${this.props.weekend ? 'weekend' : null}`}
         onClick={this.openModal}
+        role="button"
+        tabIndex={this.props.day}
       >
         {this.state.showModal &&
           <AddEvent
