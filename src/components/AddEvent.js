@@ -23,28 +23,30 @@ class AddEvent extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit} className="add-event">
-        <label htmlFor="name">
-          Event Name
-          <input
-            id="name"
-            type="text"
-            name="name"
-            onChange={this.handleChange}
-            value={this.state.name}
-          />
-        </label>
-        <label htmlFor="description">
-          Event Description
-          <input
-            id="description"
-            type="text"
-            name="description"
-            onChange={this.handleChange}
-            value={this.state.name}
-          />
-        </label>
-      </form>
+      <div className="add-event-container">
+        <form onSubmit={this.handleSubmit} className="add-event-form">
+          <label htmlFor="name">
+            Event Name
+            <input
+              id="name"
+              type="text"
+              name="name"
+              onChange={this.handleChange}
+              value={this.state.name}
+            />
+          </label>
+          <label htmlFor="description">
+            Event Description
+            <input
+              id="description"
+              type="text"
+              name="description"
+              onChange={this.handleChange}
+              value={this.state.name}
+            />
+          </label>
+        </form>
+      </div>
     );
   }
 }
