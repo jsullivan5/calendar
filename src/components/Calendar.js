@@ -17,10 +17,23 @@ class Calendar extends React.Component {
       november,
       activeMonth: 'october',
       showModal: false,
+      months: ['october', 'november'],
     };
     this.addEvent = this.addEvent.bind(this);
   }
 
+  changeMonth(direction) {
+    const { activeMonth, months } = this.state;
+    const currentIndex = months.indexOf(activeMonth);
+
+    if (direction === 'forward' && currentIndex < 2) {
+      this.setState({ activeMonth: months[currentIndex + 1] });
+    }
+
+    if (direction === 'back' && currentIndex > 0) {
+      this.setState({ activeMonth: months[currentIndex - 1] });
+    }
+  }
 
   addEvent(calendarDay, eventInfo) {
     const { activeMonth } = this.state;
