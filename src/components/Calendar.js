@@ -20,13 +20,18 @@ class Calendar extends React.Component {
       months: ['october', 'november'],
     };
     this.addEvent = this.addEvent.bind(this);
+    this.changeMonth = this.changeMonth.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.getFunc(this.changeMonth);
   }
 
   changeMonth(direction) {
     const { activeMonth, months } = this.state;
     const currentIndex = months.indexOf(activeMonth);
 
-    if (direction === 'forward' && currentIndex < 2) {
+    if (direction === 'forward' && currentIndex < 1) {
       this.setState({ activeMonth: months[currentIndex + 1] });
     }
 
