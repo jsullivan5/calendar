@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class AddEvent extends React.Component {
   constructor(props) {
@@ -66,5 +67,11 @@ class AddEvent extends React.Component {
     );
   }
 }
+
+AddEvent.propTypes = {
+  addEvent: PropTypes.func.isRequired,
+  closeModal: PropTypes.func.isRequired,
+  calendarDay: PropTypes.number.isRequired,
+};
 
 export default AddEvent;
