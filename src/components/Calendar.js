@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Day from './Day';
 import { october, november } from '../mockCalData';
 
@@ -79,5 +80,9 @@ class Calendar extends React.Component {
     );
   }
 }
+
+Calendar.propTypes = {
+  getFunc: PropTypes.func.isRequired,
+};
 
 export default Calendar;
