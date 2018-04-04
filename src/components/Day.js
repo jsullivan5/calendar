@@ -1,27 +1,35 @@
 import React from 'react';
 import Event from './Event';
 
-const Day = (props) => {
-  let dailyEvents;
+class Day extends React.Component {
+  generateEvents() {
+    let dailyEvents;
 
-  if (props.events.length > 0) {
-    dailyEvents = props.events.map(ev => (
-      <Event
-        key={ev.name}
-        name={ev.name}
-      />
-    ));
+    if (this.props.events.length > 0) {
+      dailyEvents = this.props.events.map(ev => (
+        <Event
+          key={ev.name}
+          name={ev.name}
+        />
+      ));
+    }
+
+    return dailyEvents || null;
   }
 
-  return (
-    <div
-      className={`day ${props.weekend ? 'weekend' : null}`}
-      onClick={props.onClick}
-    >
-      <p>{props.day}</p>
-      {dailyEvents || null}
-    </div>
-  );
-};
+  render() {
+    const dailyEvents = this.generateEvents();
+
+    return (
+      <div
+        className={`day ${this.props.weekend ? 'weekend' : null}`}
+        onClick={this.props.onClick}
+      >
+        <p>{this.props.day}</p>
+        {dailyEvents}
+      </div>
+    );
+  }
+}
 
 export default Day;
