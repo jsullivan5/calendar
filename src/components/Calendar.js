@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Day from './Day';
 import { october, november } from '../mockCalData';
 
@@ -13,14 +14,34 @@ class Calendar extends React.Component {
   constructor() {
     super();
     this.state = {
-      october,
-      november,
-      activeMonth: 'october',
+      October: october,
+      November: november,
+      activeMonth: 'October',
       showModal: false,
+      months: ['October', 'November'],
     };
     this.addEvent = this.addEvent.bind(this);
+    this.changeMonth = this.changeMonth.bind(this);
   }
 
+  componentDidMount() {
+    this.props.getFunc(this.changeMonth);
+  }
+
+  changeMonth(direction) {
+    const { activeMonth, months } = this.state;
+    const currentIndex = months.indexOf(activeMonth);
+
+    if (direction === 'forward' && currentIndex < 1) {
+      this.setState({ activeMonth: months[currentIndex + 1] });
+      this.props.getCurrentMonth(months[currentIndex + 1]);
+    }
+
+    if (direction === 'back' && currentIndex > 0) {
+      this.setState({ activeMonth: months[currentIndex - 1] });
+      this.props.getCurrentMonth(months[currentIndex - 1]);
+    }
+  }
 
   addEvent(calendarDay, eventInfo) {
     const { activeMonth } = this.state;
@@ -61,5 +82,10 @@ class Calendar extends React.Component {
     );
   }
 }
+
+Calendar.propTypes = {
+  getFunc: PropTypes.func.isRequired,
+  getCurrentMonth: PropTypes.func.isRequired,
+};
 
 export default Calendar;
