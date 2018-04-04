@@ -13,19 +13,12 @@ class Calendar extends React.Component {
   constructor() {
     super();
     this.state = {
-      october: [],
-      november: [],
+      october,
+      november,
       activeMonth: 'october',
       showModal: false,
     };
     this.addEvent = this.addEvent.bind(this);
-  }
-
-  componentDidMount() {
-    this.setState({
-      october,
-      november,
-    });
   }
 
   addEvent(calendarDay, eventInfo) {
