@@ -5,7 +5,8 @@ class AddEvent extends React.Component {
     super(props);
     this.state = {
       name: '',
-      description: '',
+      start: '',
+      end: '',
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -13,7 +14,11 @@ class AddEvent extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log('submit');
+    const { addEvent, closeModal, calendarDay } = this.props;
+    const eventInfo = this.state;
+
+    addEvent(calendarDay, eventInfo);
+    closeModal();
   }
 
   handleChange(event) {
@@ -35,16 +40,27 @@ class AddEvent extends React.Component {
               value={this.state.name}
             />
           </label>
-          <label htmlFor="description">
-            Event Description
+          <label htmlFor="start">
+            Start Time
             <input
-              id="description"
+              id="start"
               type="text"
-              name="description"
+              name="start"
               onChange={this.handleChange}
-              value={this.state.name}
+              value={this.state.start}
             />
           </label>
+          <label htmlFor="end">
+            End Time
+            <input
+              id="end"
+              type="text"
+              name="end"
+              onChange={this.handleChange}
+              value={this.state.end}
+            />
+          </label>
+          <input type="submit" />
         </form>
       </div>
     );
