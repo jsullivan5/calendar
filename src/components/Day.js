@@ -1,6 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Event from './Event';
 import AddEvent from './AddEvent';
+
 
 class Day extends React.Component {
   constructor(props) {
@@ -54,5 +56,12 @@ class Day extends React.Component {
     );
   }
 }
+
+Day.propTypes = {
+  events: PropTypes.array.isRequired,
+  addEvent: PropTypes.func.isRequired,
+  day: PropTypes.number.isRequired,
+  weekend: PropTypes.bool.isRequired,
+};
 
 export default Day;
