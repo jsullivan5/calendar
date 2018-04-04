@@ -16,6 +16,7 @@ class Calendar extends React.Component {
       october: [],
       november: [],
       activeMonth: 'october',
+      showModal: false,
     };
     this.addEvent = this.addEvent.bind(this);
   }
@@ -27,17 +28,12 @@ class Calendar extends React.Component {
     });
   }
 
-  addEvent(calendarDay) {
-    console.log('addEvent!!!!!!');
+  addEvent(calendarDay, eventInfo) {
     const { activeMonth } = this.state;
     const newState = [...this.state[activeMonth]];
     const index = calendarDay - 1;
 
-    newState[index].events.push({
-      name: 'new event',
-      start: '9:00',
-      end: '9:00',
-    });
+    newState[index].events.push(eventInfo);
 
     this.setState({ [activeMonth]: newState });
   }
@@ -55,7 +51,7 @@ class Calendar extends React.Component {
           weekend={isWeekend}
           day={calendarDay}
           events={day.events}
-          onClick={() => this.addEvent(calendarDay)}
+          addEvent={this.addEvent}
         />
       );
     });
