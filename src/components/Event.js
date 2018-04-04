@@ -2,7 +2,7 @@ import React from 'react';
 
 const Event = props => (
   <div>
-    {props.name}
+    <p>{props.name}</p>
   </div>
 );
 
